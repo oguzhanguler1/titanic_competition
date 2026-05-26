@@ -257,38 +257,6 @@ Confusion matrix:
 
 The model performed well overall and showed a balanced performance for both survived and non-survived passengers.
 
----
-
-## Cross Validation
-
-Stratified K-Fold Cross Validation was also considered to obtain a more reliable model evaluation.
-
-```python
-from sklearn.model_selection import StratifiedKFold, cross_val_score
-from sklearn.svm import SVC
-
-skf = StratifiedKFold(
-    n_splits=5,
-    shuffle=True,
-    random_state=42
-)
-
-svc_model = SVC()
-
-cv_scores = cross_val_score(
-    svc_model,
-    X,
-    y,
-    cv=skf,
-    scoring="accuracy"
-)
-
-print("CV Scores:", cv_scores)
-print("Mean Accuracy:", cv_scores.mean())
-print("Standard Deviation:", cv_scores.std())
-```
-
-Cross validation helps reduce dependency on a single train-validation split.
 
 ---
 
@@ -365,7 +333,6 @@ The main steps included:
 - Encoding
 - Model comparison
 - Validation
-- Cross validation
 - Test prediction
 - Submission file creation
 
